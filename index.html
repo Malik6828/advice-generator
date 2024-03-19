@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Advice generator app</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section class="section">
-        <h1>Advice</h1>
-        <div class="loader" id="loader"><span class="image"></span></div>
-        <p></p>
-        <div class="divider">
-            <img src="/assets/pattern-divider-desktop.svg" alt="pattern divider" />
-        </div>
-        <button type="button" class="button">
+      <h1>Advice</h1>
+      <div class="loader" id="loader"><span class="image"></span></div>
+      <p>Roll the dice to fetch API</p>
+      <div class="divider">
+        <img src="/assets/pattern-divider-desktop.svg" alt="pattern divider" />
+      </div>
+      <button type="button" class="button">
         <img src="assets/icon-dice.svg" alt="dice icon" />
       </button>
     </section>
     <script>
-        const button = document.querySelector(".button");
-        const advice = document.querySelector("p");
-        const h1 = document.querySelector("h1");
-        const loader = document.getElementById("loader");
-        if (loader.style.display === "block") {
-            advice.style.display = "none";
-        } else {
+      const button = document.querySelector(".button");
+      const advice = document.querySelector("p");
+      const h1 = document.querySelector("h1");
+      const loader = document.getElementById("loader");
+      if (loader.style.display === "block") {
+        advice.style.display = "none";
+      } else {
+        advice.style.display = "block";
+      }
+      button.addEventListener("click", () => {
+        loader.style.display = "block";
+        advice.style.display = "none";
+        h1.textContent = "fetching advice...";
+        fetch("https://api.adviceslip.com/advice")
+          .then((response) => response.json())
+          .then((data) => {
             advice.style.display = "block";
-        }
-        button.addEventListener("click", () => {
-            loader.style.display = "block";
-            advice.style.display = "none";
-            h1.textContent = "fetching advice...";
-            fetch("https://api.adviceslip.com/advice")
-                .then((response) => response.json())
-                .then((data) => {
-                    advice.style.display = "block";
-                    h1.textContent = `Advice #${data.slip.id}`;
-                    advice.textContent = `“${data.slip.advice}”`;
-                    loader.style.display = "none";
-                })
-                .catch((error) => {
-                    advice.style.display = "block";
-                    h1.textContent = "Oops! Something went wrong!";
-                    advice.textContent = "Please try again later.";
-                    loader.style.display = "none";
-                });
-        });
+            h1.textContent = `Advice #${data.slip.id}`;
+            advice.textContent = `“${data.slip.advice}”`;
+            loader.style.display = "none";
+          })
+          .catch((error) => {
+            advice.style.display = "block";
+            h1.textContent = "Oops! Something went wrong!";
+            advice.textContent = "Please try again later.";
+            loader.style.display = "none";
+          });
+      });
     </script>
-</body>
-
+  </body>
 </html>

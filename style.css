@@ -1,122 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap");
 *,
 *::after,
 *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Manrope";
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Manrope";
 }
 
 body {
-    background-color: #202733;
-    height: 100vh;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* font-family: 'Manrope', sans-serif; */
-    gap: 0.8rem;
-    color: white;
-    padding-left: 16px;
-    padding-right: 16px;
+  background-color: #202733;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-family: 'Manrope', sans-serif; */
+  gap: 0.8rem;
+  color: white;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 body .section {
-    width: 541px;
-    border-radius: 15px;
-    background-color: #313A48;
-    box-shadow: 30px 50px 80px 0px rgba(0, 0, 0, 0.10);
-    padding: 48.5px;
-    display: grid;
-    gap: 16px;
-    position: relative;
-    height: fit-content;
+  width: 541px;
+  border-radius: 15px;
+  background-color: #313a48;
+  box-shadow: 30px 50px 80px 0px rgba(0, 0, 0, 0.1);
+  padding: 48.5px;
+  display: grid;
+  gap: 16px;
+  position: relative;
+  height: fit-content;
 }
 
 .section h1 {
-    text-align: center;
-    color: #53FFAA;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 4.086px;
-    text-transform: uppercase;
+  text-align: center;
+  color: #53ffaa;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 4.086px;
+  text-transform: uppercase;
 }
 
 .section p {
-    font-weight: 800;
-    letter-spacing: -0.3px;
-    font-size: 28px !important;
-    text-align: center;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  font-size: 28px !important;
+  text-align: center;
 }
 
 .loader {
-    display: none;
-    position: relative;
-    height: 60px;
+  display: none;
+  position: relative;
+  height: 60px;
 }
 
 .loader span {
-    /* display: none; */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 5px solid #53FFAA;
-    border-top: 5px solid transparent;
-    animation: spin 1s linear infinite;
+  /* display: none; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 5px solid #53ffaa;
+  border-top: 5px solid transparent;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .divider {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .divider img {
-    width: 100%;
+  width: 100%;
 }
 
 .button {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -32px;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: #53FFAA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s;
-    border: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -32px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #53ffaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
 }
 
-@media screen and (max-width:640px) {
-    .section {
-        width: 100%;
-        gap: 4px;
-    }
-    .section p {
-        font-size: 24px;
-        letter-spacing: -0.257px;
-    }
-    .section h1 {
-        font-size: 11px;
-        letter-spacing: 3.457px;
-    }
+.button image {
+  animation: roll-dice 2s linear infinite;
+}
+
+@media screen and (max-width: 640px) {
+  .section {
+    width: 100%;
+    gap: 4px;
+  }
+  .section p {
+    font-size: 24px;
+    letter-spacing: -0.257px;
+  }
+  .section h1 {
+    font-size: 11px;
+    letter-spacing: 3.457px;
+  }
 }
